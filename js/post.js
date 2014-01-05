@@ -24,8 +24,8 @@ $(document).ready(function(){
     $('pre').addClass('prettyprint linenums'); //添加Google code Hight需要的class
 
     //***********************
-    //**评论的代码也删掉哦***
-    window.disqus_shortname = 'beiyuu'; // required: replace example with your forum shortname
+    //**评论的代码也删掉哦*** 可以改为自己的disqus shortname
+    window.disqus_shortname = 'xmpx000'; // required: replace example with your forum shortname
     $('#disqus_container .comment').on('click',function(){
         $(this).html('加载中...');
         var that = this;
