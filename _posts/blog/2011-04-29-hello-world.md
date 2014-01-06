@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hello, It’s Web!
-description: 
+description: 博客在中断半年后，终于又重新开张了。
 category: blog
 ---
 博客在中断半年后，终于又重新开张了。
