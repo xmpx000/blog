@@ -2,9 +2,7 @@
 title: Google Analytics自定义变量的使用小结
 author: clarke
 layout: post
-permalink: /?p=189
-categories:
-  - 网站分析笔记
+category: blog
 tags:
   - 自定义变量，ga
 ---

@@ -2,9 +2,7 @@
 title: 如何本地测试Google Analytics跟踪脚本
 author: clarke
 layout: post
-permalink: /?p=181
-categories:
-  - 网站分析笔记
+category: blog
 tags:
   - GA
   - 日常经验

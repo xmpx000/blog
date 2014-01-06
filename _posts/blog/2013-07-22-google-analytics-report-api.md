@@ -2,9 +2,7 @@
 title: Google Analytics Report API中的Page维度区别
 author: clarke
 layout: post
-permalink: /?p=219
-categories:
-  - 网站分析笔记
+category: blog
 tags:
   - GA
   - 维度

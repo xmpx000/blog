@@ -2,9 +2,7 @@
 title: 数据处理：Python使用xlrd包读取Excel表格数据
 author: clarke
 layout: post
-permalink: /?p=231
-categories:
-  - python
+category: blog
 tags:
   - 数据处理
 ---

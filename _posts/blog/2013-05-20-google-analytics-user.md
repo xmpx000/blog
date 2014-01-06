@@ -2,9 +2,7 @@
 title: 使用Google Analytics进行注册用户分析思路
 author: clarke
 layout: post
-permalink: /?p=208
-categories:
-  - 分析思路与方法
+category: blog
 tags:
   - google
   - 用户分析

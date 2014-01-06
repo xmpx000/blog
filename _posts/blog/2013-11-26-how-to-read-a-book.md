@@ -2,9 +2,7 @@
 title: 读书笔记：如何阅读一本书
 author: clarke
 layout: post
-permalink: /?p=233
-categories:
-  - 读书
+category: book
 tags:
   - 读书笔记
 ---

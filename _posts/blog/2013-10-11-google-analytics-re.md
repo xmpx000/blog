@@ -2,9 +2,7 @@
 title: Google Analytics中正则表达式的使用
 author: clarke
 layout: post
-permalink: /?p=225
-categories:
-  - 网站分析笔记
+category: blog
 ---
 ## 1.正则表达式简介：
 

@@ -2,9 +2,7 @@
 title: Google Analytics的数据过滤规则探讨
 author: clarke
 layout: post
-permalink: /?p=201
-categories:
-  - 网站分析笔记
+category: blog
 tags:
   - GA
   - 过滤器

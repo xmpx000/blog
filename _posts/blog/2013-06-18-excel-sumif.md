@@ -2,9 +2,7 @@
 title: Excel的小乐趣：sumifs()与从右向左取字符串
 author: clarke
 layout: post
-permalink: /?p=212
-categories:
-  - 分析思路与方法
+category: blog
 tags:
   - excel
 ---
