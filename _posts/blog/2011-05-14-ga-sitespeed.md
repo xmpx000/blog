@@ -4,11 +4,12 @@ title: 如何使用Google Analytics统计网页加载时长？
 description:分析的需求是无穷尽的。每当我打开老王的那满是图片的博客时，我就想：大部分访问者的打开时长是多少？有多少访问者是因为打开时间过长而走掉的了？现在大家都在讨论用户体验，如果让你的上帝在刷个页面上花时间都发个微博都长，那人家走你都不好意思说啥:).
 category: blog
 ---
+
 分析的需求是无穷尽的。每当我打开老王的那满是图片的博客时，我就想：大部分访问者的打开时长是多少？有多少访问者是因为打开时间过长而走掉的了？现在大家都在讨论用户体验，如果让你的上帝在刷个页面上花时间都发个微博都长，那人家走你都不好意思说啥:).
 
 有需求就有解决方案，要看到你的网站表现如何，得先有事实数据说话才可以，现在整理下GA中统计页面加载时间方法：
 
-###GA的官方解决方案
+### GA的官方解决方案
 
 5月初，Google官方推出新版GA的一个新报告：页面加载时间分析。打开新版GA的“内容”栏目，你可以有个一个“网站速度”报告。如下图所示:
 
@@ -16,28 +17,23 @@ category: blog
 
 但是这个报告不是默认生成的，需要对你网页中的GATC，做一下修改增加_tackPageLoadTime()函数，如下所示(本示例为异步GATC脚本)：
 
-&nbsp;
 
-<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
-
-<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
-
-<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
-
-<pre class="csharpcode">01    &lt;script type=<span class="str">"text/javascript"</span>&gt;
+<pre class="csharpcode">
+01    <script type="text/javascript">
 02
-03      <span class="kwrd">var</span> _gaq = _gaq || [];
-04      _gaq.push([<span class="str">'_setAccount'</span>, <span class="str">'UA-XXXXXX-1'</span>]);
-05      _gaq.push([<span class="str">'_trackPageview'</span>]);
-06      _gaq.push([<span class="str">'_trackPageLoadTime'</span>]);
+03      var _gaq = _gaq || [];
+04      _gaq.push(['_setAccount', 'UA-XXXXXX-1']);
+05      _gaq.push(['_trackPageview']);
+06      _gaq.push(['_trackPageLoadTime']);
 07
-08      (<span class="kwrd">function</span>() {
-09        <span class="kwrd">var</span> ga = document.createElement(<span class="str">'script'</span>); ga.type = <span class="str">'text/javascript'</span>; ga.async = <span class="kwrd">true</span>;
-10        ga.src = (<span class="str">'https:'</span> == document.location.protocol ? <span class="str">'https://ssl'</span> : <span class="str">'http://www'</span>) + <span class="str">'.google-analytics.com/ga.js'</span>;
-11        <span class="kwrd">var</span> s = document.getElementsByTagName(<span class="str">'script'</span>)[0]; s.parentNode.insertBefore(ga, s);
+08      (function() {
+09        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+10        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+11        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 12      })();
 13
-14    &lt;/script&gt;</pre>
+14    </script>
+</pre>
 
 更多说明请点击访问正统的GA help：<a href="http://www.google.com/support/analyticshelp/bin/answer.py?hl=en&answer=1205784&topic=1120718&utm_source=gablog&utm_medium=blog&utm_campaign=newga-blog&utm_content=sitespeed" target="_blank"><strong>Site Speed</strong></a> 。
 
@@ -57,82 +53,82 @@ category: blog
 *   修改使用的GATC代码，避免跳出率计算异常（这个等会说明如何修改）；
 *   新建一个新的profile，采用“为新域添加配置文件”的方式，这样可以获得一个新的UA ID。
 
-&nbsp;
 
 **第一步:修改原先的跟踪代码**
 
 最初的的跟踪如下：
 
-> <pre class="csharpcode">01    &lt;script type=<span class="str">"text/javascript"</span>&gt;
-02      <span class="kwrd">var</span> _gaq = _gaq || [];
-03      _gaq.push([<span class="str">'._setAccount'</span>, <span class="str">'UA-15373241-1'</span>]);
-04      _gaq.push([<span class="str">'._trackPageview'</span>]);
-05      (<span class="kwrd">function</span>() {
-06        <span class="kwrd">var</span> ga = document.createElement(<span class="str">'script'</span>); ga.type =
-07    <span class="str">'text/javascript'</span>; ga.async = <span class="kwrd">true</span>;
-08        ga.src = (<span class="str">'https:'</span> == document.location.protocol ? <span class="str">'https://ssl'</span> :
-09    <span class="str">'http://www'</span>) + <span class="str">'.google-analytics.com/ga.js'</span>;
-10        <span class="kwrd">var</span> s = document.getElementsByTagName(<span class="str">'script'</span>)[0];
+<pre class="csharpcode">
+01    <script type="text/javascript">
+02      var _gaq = _gaq || [];
+03      _gaq.push(['._setAccount', 'UA-15373241-1']);
+04      _gaq.push(['._trackPageview']);
+05      (function() {
+06        var ga = document.createElement('script'); ga.type =
+07    'text/javascript'; ga.async = true;
+08        ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+09    'http://www') + '.google-analytics.com/ga.js';
+10        var s = document.getElementsByTagName('script')[0];
 11    s.parentNode.insertBefore(ga, s);
 12      })();
-13    &lt;/script&gt;</pre>
+13    </script>
+</pre>
 
 修改后如下：
 
-> <pre class="csharpcode">&lt;script type=<span class="str">"text/javascript"</span>&gt;
-  <span class="kwrd">var</span> _gaq = _gaq || [];
- <span style="color: #ff0000;"><strong> _gaq.push(['pageTracker._setAccount', 'UA-15373241-1']);</strong></span>
-<span style="color: #ff0000;"><strong>  _gaq.push(['pageTracker._trackPageview']);</strong></span><span style="color: #ff0000;"><span style="text-decoration: line-through;"> </span></span>
-(<span class="kwrd">function</span>() {
-    <span class="kwrd">var</span> ga = document.createElement(<span class="str">'script'</span>); ga.type =
-<span class="str">'text/javascript'</span>; ga.async = <span class="kwrd">true</span>;
-    ga.src = (<span class="str">'https:'</span> == document.location.protocol ? <span class="str">'https://ssl'</span> :
-<span class="str">'http://www'</span>) + <span class="str">'.google-analytics.com/ga.js'</span>;
-    <span class="kwrd">var</span> s = document.getElementsByTagName(<span class="str">'script'</span>)[0];
-s.parentNode.insertBefore(ga, s);
-  })();
-&lt;/script&gt;</pre>
-
-<!--.csharpcode, .csharpcode pre { 	font-size: small; 	color: black; 	font-family: consolas, "Courier New", courier, monospace; 	background-color: #ffffff; 	/*white-space: pre;*/ } .csharpcode pre { margin: 0em; } .csharpcode .rem { color: #008000; } .csharpcode .kwrd { color: #0000ff; } .csharpcode .str { color: #006080; } .csharpcode .op { color: #0000c0; } .csharpcode .preproc { color: #cc6633; } .csharpcode .asp { background-color: #ffff00; } .csharpcode .html { color: #800000; } .csharpcode .attr { color: #ff0000; } .csharpcode .alt  { 	background-color: #f4f4f4; 	width: 100%; 	margin: 0em; } .csharpcode .lnum { color: #606060; } -->
-
+<pre class="csharpcode">
+01    <script type="text/javascript">
+02      var _gaq = _gaq || [];
+03      _gaq.push(['pageTracker._setAccount', 'UA-15373241-1']);
+04      _gaq.push(['pageTracker._trackPageview']); 
+05      (function() {
+06         var ga = document.createElement('script'); ga.type ='text/javascript'; ga.async = true;
+07         ga.src = ('https:' == document.location.protocol ? 'https://ssl' :'http://www') + '.google-analytics.com/ga.js';
+08         var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga, s);
+09      })();
+10    </script>
+</pre>
 <span style="color: #000000; font-family: Consolas; font-size: x-small;">说明：这里使用pageTracker对象，避免后面的冲突。</span>
 
 **<span style="color: #333333; font-family: Consolas;">第二步，在页面顶端head区域添加JS代码，这表示从页面顶端开始计时；</span>**
 
-> <pre class="csharpcode">1    &lt;script type=<span class="str">"text/javascript"</span>&gt;
-2    <span class="kwrd">var</span> plstart = <span class="kwrd">new</span> Date();
-3    &lt;/script&gt;</pre>
+<pre class="csharpcode">
+1    <script type="text/javascript">
+2    var plstart = new Date();
+3    </script>
+</pre>
 
 **<span style="color: #333333; font-family: Consolas;">第三步，添加事件跟踪代码：</span>**
 
-> <pre class="csharpcode">01    &lt;script type=<span class="str">"text/javascript"</span>&gt;
-02    window.onload=<span class="kwrd">function</span>() {
-03    <span class="kwrd">var</span> plend = <span class="kwrd">new</span> Date();
-04    <span class="kwrd">var</span> plload = plend.getTime() - plstart.getTime();
-05    <span class="kwrd">if</span>(plload&lt;1000)
-06    lc = <span class="str">"Very Fast"</span>;
-07    <span class="kwrd">else</span> <span class="kwrd">if</span> (plload&lt;2000)
-08    lc = <span class="str">"Fast"</span>;
-09    <span class="kwrd">else</span> <span class="kwrd">if</span> (plload&lt;3000)
-10    lc = <span class="str">"Medium"</span>;
-11    <span class="kwrd">else</span> <span class="kwrd">if</span> (plload&lt;5000)
-12    lc = <span class="str">"Sluggish"</span>;
-13    <span class="kwrd">else</span> <span class="kwrd">if</span> (plload&lt;10000)
-14    lc = <span class="str">"Slow"</span>;
-15    <span class="kwrd">else</span>
-16    lc=<span class="str">"Very Slow"</span>;
-17    <span class="kwrd">var</span> fn = document.location.pathname;
-18    <span class="kwrd">if</span>( document.location.search)
+<pre class="csharpcode">
+01    <script type="text/javascript">
+02    window.onload=function() {
+03    var plend = new Date();
+04    var plload = plend.getTime() - plstart.getTime();
+05    if(plload<1000)
+06    lc = "Very Fast";
+07    else if (plload<2000)
+08    lc = "Fast";
+09    else if (plload<3000)
+10    lc = "Medium";
+11    else if (plload<5000)
+12    lc = "Sluggish";
+13    else if (plload<10000)
+14    lc = "Slow";
+15    else
+16    lc="Very Slow";
+17    var fn = document.location.pathname;
+18    if( document.location.search)
 19    fn += document.location.search;
-20    <span class="kwrd">try</span> {
-21    _gaq.push([<span class="str">'loadTracker._setAccount'</span>, <span class="str">'UA-15373241-2'</span>]);
-22    _gaq.push([<span class="str">'loadTracker._trackEvent'</span>,<span class="str">'Page Load (ms)'</span>,lc + <span class="str">' Loading Pages'</span>,fn,plload]);
-23    _gaq.push([<span class="str">'loadTracker._trackPageview'</span>]);
-24    } <span class="kwrd">catch</span>(err){}
+20    try {
+21    _gaq.push(['loadTracker._setAccount', 'UA-15373241-2']);
+22    _gaq.push(['loadTracker._trackEvent','Page Load (ms)',lc + ' Loading Pages',fn,plload]);
+23    _gaq.push(['loadTracker._trackPageview']);
+24    } catch(err){}
 25    }
-26    &lt;/script&gt;</pre>
-> 
-> &nbsp;
+26    </script>
+</pre>
+
 
 这段代码展示了采集的逻辑及判断依据，其中1000、2000都是以毫秒为单位，所以1000代表1秒。上面代码中设置的逻辑是小于1000毫秒就是Very Fast，你可以根据实际情况进行调整。
 
@@ -149,15 +145,15 @@ s.parentNode.insertBefore(ga, s);
 
 <span style="background-color: #fafafa; color: #333333;">此部分可以参考蓝鲸的博客内容：</span>
 
-> ### [Google Analytics中trackPageview函数的5种使用策略][3]
-> 
-> Read more: <http://bluewhale.cc/2010-01-12/google-analytics-trackpageview-policy.html#ixzz1MJKrQfci>
-> 
-> ### [使用JS和_trackPageview函数从时间维度监测页面表现][4]
-> 
-> Read more: <http://bluewhale.cc/2010-01-12/js-trackpageview-time-dimension-tracking-page.html#ixzz1MJKy7j8d>
+[Google Analytics中trackPageview函数的5种使用策略][3]
+ 
+Read more: <http://bluewhale.cc/2010-01-12/google-analytics-trackpageview-policy.html#ixzz1MJKrQfci>
+ 
+[使用JS和_trackPageview函数从时间维度监测页面表现][4]
+ 
+Read more: <http://bluewhale.cc/2010-01-12/js-trackpageview-time-dimension-tracking-page.html#ixzz1MJKy7j8d>
 
-#### <span style="font-family: 宋体;">2.3. 小结</span>
+####小结
 
 <span style="font-family: 宋体;"> 3种方法都可以采集页面加载时间。但是官方的方法对访问量小的网站来说难以说明实际问题。采用事件跟踪方式和虚拟页面方式都可以获得准确的数据，但是需要新建Profile进行配置，另外十分值得注意的是需要对Landing Page的跳出率统计考虑。（蓝鲸的博客没有写到要新建Profile，但是在回复中他也说到虚拟页面会导致PV虚增，需进行过滤，其实也可以参考上面事件跟踪方式的方法将数据分离。）</span>
 
