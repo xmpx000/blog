@@ -2,13 +2,7 @@
 title: 'Hello, It&#8217;s Web!'
 author: clarke
 layout: post
-permalink: /?p=6
-Views:
-  - 1
-categories:
-  - 随感
-tags:
-  - 生活
+categories:blog
 ---
 博客在中断半年后，终于又重新开张了。
 
