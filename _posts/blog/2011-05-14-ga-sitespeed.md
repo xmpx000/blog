@@ -4,13 +4,13 @@ title: 如何使用Google Analytics统计网页加载时长？
 description:分析的需求是无穷尽的。每当我打开老王的那满是图片的博客时，我就想：大部分访问者的打开时长是多少？有多少访问者是因为打开时间过长而走掉的了？现在大家都在讨论用户体验，如果让你的上帝在刷个页面上花时间都发个微博都长，那人家走你都不好意思说啥:).
 category: blog
 ---
-<span style="color: #777777; font-family: 宋体;"> 分析的需求是无穷尽的。每当我打开老王的那满是图片的博客时，我就想：大部分访问者的打开时长是多少？有多少访问者是因为打开时间过长而走掉的了？现在大家都在讨论用户体验，如果让你的上帝在刷个页面上花时间都发个微博都长，那人家走你都不好意思说啥:).</span>
+分析的需求是无穷尽的。每当我打开老王的那满是图片的博客时，我就想：大部分访问者的打开时长是多少？有多少访问者是因为打开时间过长而走掉的了？现在大家都在讨论用户体验，如果让你的上帝在刷个页面上花时间都发个微博都长，那人家走你都不好意思说啥:).
 
-<span style="color: #777777; font-family: 宋体;"> 有需求就有解决方案，要看到你的网站表现如何，得先有事实数据说话才可以，现在整理下GA中统计页面加载时间方法：<!--more--></span>
+有需求就有解决方案，要看到你的网站表现如何，得先有事实数据说话才可以，现在整理下GA中统计页面加载时间方法：
 
-### <span style="color: #777777; font-family: 宋体;">1.GA的官方解决方案</span>
+###GA的官方解决方案
 
-<span style="color: #777777; font-family: 宋体;"> 5月初，Google官方推出新版GA的一个新报告：页面加载时间分析。打开新版GA的“内容”栏目，你可以有个一个“网站速度”报告。如下图所示：</span>
+5月初，Google官方推出新版GA的一个新报告：页面加载时间分析。打开新版GA的“内容”栏目，你可以有个一个“网站速度”报告。如下图所示:
 
 [<img style="display: block; float: none; margin-left: auto; margin-right: auto; border-width: 0px;" title="report-1" src="http://itweb.me/wp-content/uploads/2011/05/report1_thumb.png" border="0" alt="report-1" width="471" height="330" />][1]
 
@@ -43,9 +43,9 @@ category: blog
 
 官方方案的问题在于这个数据是抽样统计，我在5月初兴匆匆的为我的博客更新了代码，但是等了10多天了还是没有数据，开始我以为是我的配置有问题，后来在网上搜索了下，发现有人反馈这个抽样的频率不高，我这种小博客没几个人访问的，居然这段时间没有一条数据（汗颜，虽然这段时间只有20多个pv，但好歹给我显示一条嘛——昨晚我折腾到2点排查问题）。
 
-### 2.非官方方案
+### 非官方方案
 
-#### 2.1.使用事件跟踪
+#### 使用事件跟踪
 
 在网上看到<a href="http://www.optimisationbeacon.com/" target="_blank">Rob Kingston</a>的博客，上面有一篇内容详细介绍了如何使用_trackEvent()跟踪网页加载时长，<a href="http://www.optimisationbeacon.com/analytics/track-page-load-times-with-google-analytics-asynchronous-script/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+OptimisationBeacon+%28Optimisation+Beacon%29" target="_blank">原文地址请点击我</a>。
 
@@ -134,18 +134,18 @@ s.parentNode.insertBefore(ga, s);
 > 
 > &nbsp;
 
-<span style="background-color: #fafafa;">这段代码展示了采集的逻辑及判断依据，其中1000、2000都是以毫秒为单位，所以1000代表1秒。上面代码中设置的逻辑是小于1000毫秒就是Very Fast，你可以根据实际情况进行调整。</span>
+这段代码展示了采集的逻辑及判断依据，其中1000、2000都是以毫秒为单位，所以1000代表1秒。上面代码中设置的逻辑是小于1000毫秒就是Very Fast，你可以根据实际情况进行调整。
 
-<span style="background-color: #fafafa;"><strong>注意：</strong></span>
+注意:
 
-1.  <span style="background-color: #fafafa;">这个地方_gaq.push[]中的对象为loadTracker，而不是开始pageTracker，这样就避免的2个JS对象的冲突。</span>
-2.  <span style="background-color: #fafafa;">这段代码的UA ID为UA-15373241-2，与第一段代码的UA ID不一样，这是为了避免landing Page的跳出率计算错误。</span>
+1.这个地方_gaq.push[]中的对象为loadTracker，而不是开始pageTracker，这样就避免的2个JS对象的冲突。
+2.这段代码的UA ID为UA-15373241-2，与第一段代码的UA ID不一样，这是为了避免landing Page的跳出率计算错误。
 
 <span style="background-color: #fafafa; color: #333333;">效果如下：</span>
 
 [<img style="display: block; float: none; margin-left: auto; margin-right: auto; border-width: 0px;" title="report-2" src="http://itweb.me/wp-content/uploads/2011/05/report2_thumb.png" border="0" alt="report-2" width="442" height="276" />][2]
 
-#### <span>2.2.使用虚拟页面</span>
+#### 使用虚拟页面
 
 <span style="background-color: #fafafa; color: #333333;">此部分可以参考蓝鲸的博客内容：</span>
 
