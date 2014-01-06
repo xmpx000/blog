@@ -1,8 +1,7 @@
 ---
 title: 'Hello, It&#8217;s Web!'
-author: clarke
 layout: post
-categories:blog
+category:blog
 ---
 博客在中断半年后，终于又重新开张了。
 
