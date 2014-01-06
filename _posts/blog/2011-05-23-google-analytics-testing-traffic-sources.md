@@ -2,14 +2,7 @@
 title: Google Analytics测试案例：流量来源分析
 author: clarke
 layout: post
-permalink: /?p=28
-Views:
-  - 20
-categories:
-  - 网站分析笔记
-tags:
-  - GA
-  - 测试
+categories: blog
 ---
 前两天看到蓝鲸的博客《<a href="http://bluewhale.cc/2011-05-09/google-analytics-question-and-answer-1.html" target="_blank">Google Analytics使用中的常见问题（一）</a>》，在问题2中提到了GA中流量来源的级别问题，并推荐了郑海平的博客。翻了下郑海平以前的文章<a href="http://www.wachina.net/index.php/googleanalyticsmarketingchannnellogics/" target="_blank">《如何解读Google Analytics渠道流量数据(一)：流量是怎么算出来的》</a>，发现这个问题挺有意思的，博主在博文中对GA的四种流量做了详细的解释，<!--more-->在此不重述，我们直接看看结论(先感谢原文博主)：
 
