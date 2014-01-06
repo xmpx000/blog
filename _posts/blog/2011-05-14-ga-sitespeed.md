@@ -9,7 +9,7 @@ category: blog
 
 有需求就有解决方案，要看到你的网站表现如何，得先有事实数据说话才可以，现在整理下GA中统计页面加载时间方法：
 
-### GA的官方解决方案
+## GA的官方解决方案
 
 5月初，Google官方推出新版GA的一个新报告：页面加载时间分析。打开新版GA的“内容”栏目，你可以有个一个“网站速度”报告。如下图所示:
 
@@ -34,9 +34,9 @@ category: blog
 
 官方方案的问题在于这个数据是抽样统计，我在5月初兴匆匆的为我的博客更新了代码，但是等了10多天了还是没有数据，开始我以为是我的配置有问题，后来在网上搜索了下，发现有人反馈这个抽样的频率不高，我这种小博客没几个人访问的，居然这段时间没有一条数据（汗颜，虽然这段时间只有20多个pv，但好歹给我显示一条嘛——昨晚我折腾到2点排查问题）。
 
-### 非官方方案
+## 非官方方案
 
-#### 使用事件跟踪
+### 使用事件跟踪
 
 在网上看到<a href="http://www.optimisationbeacon.com/" target="_blank">Rob Kingston</a>的博客，上面有一篇内容详细介绍了如何使用_trackEvent()跟踪网页加载时长，<a href="http://www.optimisationbeacon.com/analytics/track-page-load-times-with-google-analytics-asynchronous-script/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+OptimisationBeacon+%28Optimisation+Beacon%29" target="_blank">原文地址请点击我</a>。
 
@@ -124,7 +124,7 @@ category: blog
 
 [<img style="display: block; float: none; margin-left: auto; margin-right: auto; border-width: 0px;" title="report-2" src="http://itweb.me/wp-content/uploads/2011/05/report2_thumb.png" border="0" alt="report-2" width="442" height="276" />][2]
 
-#### 使用虚拟页面
+### 使用虚拟页面
 
 <span style="background-color: #fafafa; color: #333333;">此部分可以参考蓝鲸的博客内容：</span>
 
@@ -136,7 +136,7 @@ Read more: <http://bluewhale.cc/2010-01-12/google-analytics-trackpageview-policy
  
 Read more: <http://bluewhale.cc/2010-01-12/js-trackpageview-time-dimension-tracking-page.html#ixzz1MJKy7j8d>
 
-####小结
+##小结
 
 <span style="font-family: 宋体;"> 3种方法都可以采集页面加载时间。但是官方的方法对访问量小的网站来说难以说明实际问题。采用事件跟踪方式和虚拟页面方式都可以获得准确的数据，但是需要新建Profile进行配置，另外十分值得注意的是需要对Landing Page的跳出率统计考虑。（蓝鲸的博客没有写到要新建Profile，但是在回复中他也说到虚拟页面会导致PV虚增，需进行过滤，其实也可以参考上面事件跟踪方式的方法将数据分离。）</span>
 
