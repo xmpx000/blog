@@ -18,22 +18,17 @@ category: blog
 但是这个报告不是默认生成的，需要对你网页中的GATC，做一下修改增加_tackPageLoadTime()函数，如下所示(本示例为异步GATC脚本)：
 
 
-<pre class="csharpcode">
-01    <script type="text/javascript">
-02
-03      var _gaq = _gaq || [];
-04      _gaq.push(['_setAccount', 'UA-XXXXXX-1']);
-05      _gaq.push(['_trackPageview']);
-06      _gaq.push(['_trackPageLoadTime']);
-07
-08      (function() {
-09        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-10        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-11        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-12      })();
-13
-14    </script>
-</pre>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-XXXXXX-1']);
+      _gaq.push(['_trackPageview']);
+      _gaq.push(['_trackPageLoadTime']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
 
 更多说明请点击访问正统的GA help：<a href="http://www.google.com/support/analyticshelp/bin/answer.py?hl=en&answer=1205784&topic=1120718&utm_source=gablog&utm_medium=blog&utm_campaign=newga-blog&utm_content=sitespeed" target="_blank"><strong>Site Speed</strong></a> 。
 
@@ -58,76 +53,64 @@ category: blog
 
 最初的的跟踪如下：
 
-<pre class="csharpcode">
-01    <script type="text/javascript">
-02      var _gaq = _gaq || [];
-03      _gaq.push(['._setAccount', 'UA-15373241-1']);
-04      _gaq.push(['._trackPageview']);
-05      (function() {
-06        var ga = document.createElement('script'); ga.type =
-07    'text/javascript'; ga.async = true;
-08        ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
-09    'http://www') + '.google-analytics.com/ga.js';
-10        var s = document.getElementsByTagName('script')[0];
-11    s.parentNode.insertBefore(ga, s);
-12      })();
-13    </script>
-</pre>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['._setAccount', 'UA-15373241-1']);
+      _gaq.push(['._trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type ='text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' :'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga, s);})();
+    </script>
 
 修改后如下：
 
-<pre class="csharpcode">
-01    <script type="text/javascript">
-02      var _gaq = _gaq || [];
-03      _gaq.push(['pageTracker._setAccount', 'UA-15373241-1']);
-04      _gaq.push(['pageTracker._trackPageview']); 
-05      (function() {
-06         var ga = document.createElement('script'); ga.type ='text/javascript'; ga.async = true;
-07         ga.src = ('https:' == document.location.protocol ? 'https://ssl' :'http://www') + '.google-analytics.com/ga.js';
-08         var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga, s);
-09      })();
-10    </script>
-</pre>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['pageTracker._setAccount', 'UA-15373241-1']);
+      _gaq.push(['pageTracker._trackPageview']); 
+      (function() {
+         var ga = document.createElement('script'); ga.type ='text/javascript'; ga.async = true;
+         ga.src = ('https:' == document.location.protocol ? 'https://ssl' :'http://www') + '.google-analytics.com/ga.js';
+         var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
 <span style="color: #000000; font-family: Consolas; font-size: x-small;">说明：这里使用pageTracker对象，避免后面的冲突。</span>
 
 **<span style="color: #333333; font-family: Consolas;">第二步，在页面顶端head区域添加JS代码，这表示从页面顶端开始计时；</span>**
 
-<pre class="csharpcode">
-1    <script type="text/javascript">
-2    var plstart = new Date();
-3    </script>
-</pre>
+    <script type="text/javascript">
+     var plstart = new Date();
+    </script>
 
 **<span style="color: #333333; font-family: Consolas;">第三步，添加事件跟踪代码：</span>**
 
-<pre class="csharpcode">
-01    <script type="text/javascript">
-02    window.onload=function() {
-03    var plend = new Date();
-04    var plload = plend.getTime() - plstart.getTime();
-05    if(plload<1000)
-06    lc = "Very Fast";
-07    else if (plload<2000)
-08    lc = "Fast";
-09    else if (plload<3000)
-10    lc = "Medium";
-11    else if (plload<5000)
-12    lc = "Sluggish";
-13    else if (plload<10000)
-14    lc = "Slow";
-15    else
-16    lc="Very Slow";
-17    var fn = document.location.pathname;
-18    if( document.location.search)
-19    fn += document.location.search;
-20    try {
-21    _gaq.push(['loadTracker._setAccount', 'UA-15373241-2']);
-22    _gaq.push(['loadTracker._trackEvent','Page Load (ms)',lc + ' Loading Pages',fn,plload]);
-23    _gaq.push(['loadTracker._trackPageview']);
-24    } catch(err){}
-25    }
-26    </script>
-</pre>
+    <script type="text/javascript">
+      window.onload=function() {
+      var plend = new Date();
+      var plload = plend.getTime() - plstart.getTime();
+      if(plload<1000)
+      lc = "Very Fast";
+      else if (plload<2000)
+      lc = "Fast";
+      else if (plload<3000)
+      lc = "Medium";
+      else if (plload<5000)
+      lc = "Sluggish";
+      else if (plload<10000)
+      lc = "Slow";
+      else
+      lc="Very Slow";
+      var fn = document.location.pathname;
+      if( document.location.search)
+      fn += document.location.search;
+      try {
+      _gaq.push(['loadTracker._setAccount', 'UA-15373241-2']);
+      _gaq.push(['loadTracker._trackEvent','Page Load (ms)',lc + ' Loading Pages',fn,plload]);
+      _gaq.push(['loadTracker._trackPageview']);
+      } catch(err){}
+      }
+    </script>
 
 
 这段代码展示了采集的逻辑及判断依据，其中1000、2000都是以毫秒为单位，所以1000代表1秒。上面代码中设置的逻辑是小于1000毫秒就是Very Fast，你可以根据实际情况进行调整。
