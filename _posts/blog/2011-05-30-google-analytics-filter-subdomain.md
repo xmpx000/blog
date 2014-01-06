@@ -2,11 +2,9 @@
 title: Google Analytics过滤器小常识1：多子域/目录跟踪与处理
 author: clarke
 layout: post
+description: 在实施跟踪计划的时候，常常会碰到多子域/多目录跟踪的问题。比如一个网站有多个子域名：如news.itweb.me、blog.itweb.me、t.itweb.me，不同的域名代表不同的栏目，属于不同的编辑部门管理；或者这样：我的网站有itweb.me/zh与itweb.me/en等目录，不同的目录代表不同的国家，对于以上的网站，为了数据上管理与保密，如何进行实施Google Analytics跟踪方案？
 permalink: /?p=55
-Views:
-  - 22
-categories:
-  - 网站分析笔记
+category: blog
 tags:
   - GA
   - 过滤器
