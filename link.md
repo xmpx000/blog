@@ -2,19 +2,12 @@
 layout: page
 title: Link
 ---
-
-<div class="section">
-        <ul class="artical-cate">
-            <li class="on"><a href="/"><span>Blog</span></a></li>
-            <li style="text-align:center"><a href="/opinion"><span>Opinion</span></a></li>
-            <li style="text-align:center"><a href="/book"><span>Book</span></a></li>
-            <li style="text-align:right"><a href="/link"><span>Link</span></a></li>
-        </ul>
-</div>
 <div class="wiki">
     <h2>朋友们的博客</h2>
     <ul>
+        <li><a href="http://www.cloga.info/">Cloga的互联网笔记</a></li>
         <li><a href="http://www.myttnn.com">myTTNN</a></li>
+        
     </ul>
 </div>
 <script type="text/javascript">
