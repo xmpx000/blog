@@ -3,7 +3,7 @@ layout: page
 title: Link
 ---
 <div class="wiki">
-    <h2>Javascript</h2>
+    <h2>朋友们的博客</h2>
     <ul>
         <li><a href="http://www.myttnn.com">myTTNN</a></li>
     </ul>
