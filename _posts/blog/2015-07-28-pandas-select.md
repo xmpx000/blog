@@ -40,11 +40,12 @@ pandas主要有2种数据选择选择格式：基于label的`.loc`与基于位�
 ### 示例
 以下示例均在ipython中操作：
 ```ptyhon
-df= DataFrame({'A' : ['foo', 'bar', 'foo', 'bar',
-                      'foo', 'bar', 'foo', 'foo'],
-                'B' : ['one', 'one', 'two', 'three',
-                      'two', 'two', 'one', 'three'],
-                 'C' : np.random.randn(8), 'D' : np.random.randn(8)})
+
+    df= DataFrame({'A' : ['foo', 'bar', 'foo', 'bar',
+                          'foo', 'bar', 'foo', 'foo'],
+                    'B' : ['one', 'one', 'two', 'three',
+                          'two', 'two', 'one', 'three'],
+                     'C' : np.random.randn(8), 'D' : np.random.randn(8)})
 ```
     df
 输出：
