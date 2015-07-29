@@ -50,39 +50,121 @@ pandas主要有2种数据选择选择格式：基于label的`.loc`与基于位�
  输出：
  
  
-|-|A|B|C|D|
-|---|---|---|---|---|
-|0|foo|one|1.065729|1.681778|
-|1|bar|one|0.240644|0.717240|
-|2|foo|two|0.844402|-1.756049|
-|3|bar|three|-1.098014|-0.080866|
-|4|foo|two|-1.110899|-0.469254|
-|5|bar|two|0.739063|1.727154|
-|6|foo|one|0.087585|0.554248|
-|7|foo|three|-0.558808|0.000000|
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>foo</td>
+      <td>one</td>
+      <td>0.149304</td>
+      <td>0.242362</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>bar</td>
+      <td>one</td>
+      <td>0.665781</td>
+      <td>0.382197</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>foo</td>
+      <td>two</td>
+      <td>0.266864</td>
+      <td>-0.846936</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>bar</td>
+      <td>three</td>
+      <td>-1.456214</td>
+      <td>0.600248</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>foo</td>
+      <td>two</td>
+      <td>-1.137853</td>
+      <td>-1.007400</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>bar</td>
+      <td>two</td>
+      <td>2.312738</td>
+      <td>-0.528008</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>foo</td>
+      <td>one</td>
+      <td>-1.069947</td>
+      <td>0.420484</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>foo</td>
+      <td>three</td>
+      <td>0.786922</td>
+      <td>-0.956687</td>
+    </tr>
+  </tbody>
+</table>
 
 
 
     df.loc[3]
+
 输出：
 
-    A           bar
-    B         three
-    C     -1.098014
-    D   -0.08086613
+    A          bar
+    B        three
+    C    -1.456214
+    D    0.6002484
     Name: 3, dtype: object
 
 -----------------
 
-    df_g.loc[0:2,('A','B')]
+    df.loc[0:2,('A','B')]
+
 输出
 
 
-|-|A|B|
-|:---|:---|
-|0|foo|one|
-|1|bar|one|
-|2|foo|two|
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>foo</td>
+      <td>one</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>bar</td>
+      <td>one</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>foo</td>
+      <td>two</td>
+    </tr>
+  </tbody>
+</table>
 
 
 -----------------
@@ -90,32 +172,67 @@ pandas主要有2种数据选择选择格式：基于label的`.loc`与基于位�
 
 输出：
 
--|D
-:-----|:-----
-0|	1.681778
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.242362</td>
+    </tr>
+  </tbody>
+</table>
 
 
 ----------------------
-    df_g.iloc[2]>0.5
+    df.iloc[2]>0.5
+    
+    
 输出：
 
     A     True
     B     True
-    C     True
+    C    False
     D    False
     Name: 2, dtype: bool
 
 --------------------------------
     #使用boolean数组，将结果为True的label返回。
-    df_g.loc[1:3,df_g.iloc[2]>0.5]
+    df.loc[1:3,df.iloc[2]>0.5]
 
 输出
 
-    |A|B|C|
-    |---|---|---|
-    |1|bar|one|0.240644|
-    |2|foo|two|0.844402|
-    |3|bar|three|-1.098014|
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>bar</td>
+      <td>one</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>foo</td>
+      <td>two</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>bar</td>
+      <td>three</td>
+    </tr>
+  </tbody>
+</table>
 
 
 [It'web]:    http://itweb.me  "It’web"
