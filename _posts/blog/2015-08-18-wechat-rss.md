@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Pandas: 微信公众号的RSS订阅解决方案
-description:  Pandas:微信公众号的RSS订阅解决方法。
+title: 微信公众号的RSS订阅解决方案
+description: 微信公众号的RSS订阅解决方法。
 category: blog
 ---
 ### 介绍
