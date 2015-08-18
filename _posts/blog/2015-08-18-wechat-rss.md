@@ -1,10 +1,9 @@
 ---
 layout: post
-title: Pandas：微信公众号的RSS订阅解决方案
-description:  Pandas：微信公众号的RSS订阅解决方法。
+title: Pandas: 微信公众号的RSS订阅解决方案
+description:  Pandas:微信公众号的RSS订阅解决方法。
 category: blog
 ---
-
 ### 介绍
 
 对于日常的资讯及博客更新阅读，我都喜欢用RSS订阅来解决，当年Google Reader，现在是feedly。自从微信公众号出来后，不知不觉自己就订阅了一堆的微信公众号，但是手机的阅读及检视实在是效率过低。以前采用的方案是用每天扫扫微信，顺便将感兴趣的用pocket保存起来。但这样还不方便，直到看到有朋友在朋友圈介绍了公众号保存为RSS订阅的方案，但是那个RSS烧制的地址为个人作者维护，稳定性有所欠缺。所以寻找一个稳定的RSS抓取源成了解决这个问题的关键点。前段时间发现小众软件有篇文章介绍如何利用 [Feed43制作RSS源](http://www.appinn.com/feed43/)的文章，利用Feed43.com可以很好的解决RSS抓取问题。
