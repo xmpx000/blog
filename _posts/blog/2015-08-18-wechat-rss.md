@@ -19,7 +19,9 @@ category: blog
 访问feed43.com,注册登录不多说，操作步骤可以参考前面提到的小众软件的方法，这里只写下step2的参数获取方式,如果想深入了解参数的配置，可以访问help文档查看。
 
 ```html
+{% raw %}
 <title><![CDATA[{%}]{*}<\/title><url><![CDATA[{%}]{*}<\/url>{*}<content168><![CDATA[{%}]{*}<\/content168>
+{% endraw %}
 
 ```
 #### 3.RSS订阅
